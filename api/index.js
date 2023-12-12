@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import { errorHandler } from "./middleware/errorHandler.js";
 import mongoose from "mongoose";
+import authRouter from "./routes/auth.route.js";
 dotenv.config();
 
 mongoose
@@ -19,5 +20,7 @@ app.use(express.json());
 app.listen(process.env.PORT, () => {
   console.log(`server running on port ${process.env.PORT}`);
 });
+
+app.use("/api/auth", authRouter);
 
 app.use(errorHandler);
