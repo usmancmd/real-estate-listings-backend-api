@@ -4,6 +4,7 @@ import { errorHandler } from "./middleware/errorHandler.js";
 import mongoose from "mongoose";
 import authRouter from "./routes/auth.route.js";
 import userRouter from "./routes/user.route.js";
+import listingRouter from "./routes/listing.route.js";
 import cookieParser from "cookie-parser";
 dotenv.config();
 
@@ -26,5 +27,6 @@ app.listen(process.env.PORT, () => {
 
 app.use("/auth", authRouter);
 app.use("/user", userRouter);
+app.use("/listing", listingRouter);
 
 app.use(errorHandler);
