@@ -8,9 +8,7 @@ export const signUp = async (req, res, next) => {
 
   const user = await User.findOne({ email });
   if (user)
-    return res
-      .status(409)
-      .json({ message: "conflict!, user already exist" });
+    return res.status(409).json({ message: "conflict!, user already exist" });
 
   const salt = bcryptjs.genSaltSync(10);
   const hashedPassword = bcryptjs.hashSync(password, salt);
@@ -38,7 +36,7 @@ export const signIn = async (req, res, next) => {
 
     const validPassword = bcryptjs.compareSync(password, validUser.password);
     if (!validPassword)
-      return next(customErrorHandler(404, "from passwd wrong credentials!"));
+      return next(customErrorHandler(404, "wrong credentials!"));
 
     const token = Jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
     const { password: passwd, ...response } = validUser._doc;
