@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import { errorHandler } from "./middleware/errorHandler.js";
 import mongoose from "mongoose";
 import authRouter from "./routes/auth.route.js";
+import userRouter from "./routes/user.route.js";
 import cookieParser from "cookie-parser";
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.listen(process.env.PORT, () => {
   console.log(`server running on port ${process.env.PORT}`);
 });
 
-app.use("/api/auth", authRouter);
+app.use("/auth", authRouter);
+app.use("/user", userRouter);
 
 app.use(errorHandler);
