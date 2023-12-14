@@ -1,8 +1,8 @@
 import Listing from "../models/listing.model.js";
 import { customErrorHandler } from "../utils/error.js";
+import { modifyListings } from "../utils/modifyListing.js";
 
 export const createListing = async (req, res, next) => {
-  console.log(req.body.userRef);
   if (req.user.id !== req.body.userRef)
     return next(customErrorHandler(403, "Forbidden"));
 
@@ -13,7 +13,6 @@ export const createListing = async (req, res, next) => {
         .json({ message: "listing created successfully", listing });
     });
   } catch (error) {
-    console.log("f111111111111");
     next(error);
   }
 };
@@ -77,13 +76,15 @@ export const getListings = async (req, res, next) => {
       description: { $regex: description, $options: "i" },
       address: { $regex: address, $options: "i" },
       furnished,
-      // parking,
-      // type,
+      parking,
+      type,
     })
       .limit(limit)
       .skip(startIndex);
 
-    return res.status(200).json(listings);
+    const modifiedListings = modifyListings(listings);
+
+    return res.status(200).json(modifiedListings);
   } catch (error) {
     next(error);
   }
