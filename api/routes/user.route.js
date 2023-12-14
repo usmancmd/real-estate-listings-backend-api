@@ -6,12 +6,13 @@ import {
   getUserListings,
 } from "../controllers/user.controller.js";
 import { verifyUser } from "../middleware/verifyUser.js";
+import { getUserId } from "../middleware/getUserId.js";
 
 const router = express.Router();
 
-router.put("/update/:id", verifyUser, updateUser);
-router.delete("/delete/:id", verifyUser, deleteUser);
+router.put("/update", verifyUser, getUserId, updateUser);
+router.delete("/delete", verifyUser, getUserId, deleteUser);
 router.get("/listing/:id", verifyUser, getUserListing); // requires listing id
-router.get("/listings/:id", verifyUser, getUserListings); // reqiures user id id
+router.get("/listings", verifyUser, getUserId, getUserListings); // reqiures user id
 
 export default router;
