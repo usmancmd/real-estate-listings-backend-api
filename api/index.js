@@ -27,6 +27,6 @@ app.listen(process.env.PORT, () => {
 
 app.use("/auth", authRouter);
 app.use("/user", userRouter);
-app.use("/listing", listingRouter);
+app.use("/listings", listingRouter);
 
 app.use(errorHandler);
