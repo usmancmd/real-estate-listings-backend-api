@@ -1,6 +1,5 @@
 import Listing from "../models/listing.model.js";
 import { customErrorHandler } from "../utils/error.js";
-import { modifyListings } from "../utils/modifyListing.js";
 
 export const createListing = async (req, res, next) => {
   if (req.user.id !== req.body.userRef)
@@ -63,7 +62,7 @@ export const deleteListing = async (req, res, next) => {
 
 export const getListings = async (req, res, next) => {
   try {
-    const limit = parseInt(req.query.limit) || 6;
+    const limit = parseInt(req.query.limit) || 12;
     const startIndex = parseInt(req.query.startIndex) || 0;
     const name = req.query.name || "";
     const description = req.query.description || "";
