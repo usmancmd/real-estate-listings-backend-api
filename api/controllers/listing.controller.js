@@ -6,12 +6,20 @@ export const createListing = async (req, res, next) => {
   if (req.user.id !== req.body.userRef)
     return next(customErrorHandler(403, "Forbidden"));
 
+  const { name, description } = req.body;
+
+  const listing = await Listing.findOne({ name, description });
+  if (listing)
+    return res
+      .status(409)
+      .json({ message: "conflict!, listing already exist" });
+
   try {
-    await Listing.create(req.body).then((listing) => {
-      return res
-        .status(201)
-        .json({ message: "listing created successfully", listing });
-    });
+    const listing = await Listing.create(req.body);
+    const { userRef, ...response } = listing._doc;
+    return res
+      .status(201)
+      .json({ message: "listing created successfully", response });
   } catch (error) {
     next(error);
   }
@@ -82,9 +90,7 @@ export const getListings = async (req, res, next) => {
       .limit(limit)
       .skip(startIndex);
 
-    const modifiedListings = modifyListings(listings);
-
-    return res.status(200).json(modifiedListings);
+    return res.status(200).json(listings);
   } catch (error) {
     next(error);
   }
