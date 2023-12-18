@@ -13,6 +13,6 @@ const router = express.Router();
 router.put("/update", verifyUser, getUserId, updateUser);
 router.delete("/delete", verifyUser, getUserId, deleteUser);
 router.get("/listing/:id", verifyUser, getUserListing); // requires listing id
-router.get("/listings", verifyUser, getUserId, getUserListings); // reqiures user id
+router.get("/listings", verifyUser, getUserId, getUserListings); // reqiures
 
 export default router;
