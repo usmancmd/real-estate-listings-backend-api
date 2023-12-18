@@ -4,7 +4,7 @@ import { customErrorHandler } from "../utils/error.js";
 import Jwt from "jsonwebtoken";
 
 export const signUp = async (req, res, next) => {
-  const { username, email, password } = req.body;
+  const { email, password } = req.body;
 
   const user = await User.findOne({ email });
   if (user)
@@ -12,14 +12,13 @@ export const signUp = async (req, res, next) => {
 
   const salt = bcryptjs.genSaltSync(10);
   const hashedPassword = bcryptjs.hashSync(password, salt);
-  const newUser = User({ username, email, password: hashedPassword });
+  const newUser = User({ email, password: hashedPassword });
 
   try {
     await newUser.save();
 
     return res.status(201).json({
       response_msg: "user created successfully",
-      username,
       email,
     });
   } catch (error) {
@@ -40,13 +39,10 @@ export const signIn = async (req, res, next) => {
 
     const token = Jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
     const { password: passwd, ...response } = validUser._doc;
-    res
-      .cookie("access_token", token, { httpOnly: true })
-      .status(200)
-      .json({
-        response_msg: `${validUser.username} signed in successfully`,
-        response,
-      });
+    res.cookie("access_token", token, { httpOnly: true }).status(200).json({
+      response_msg: "user signed in successfully",
+      response,
+    });
   } catch (error) {
     next(error);
   }
