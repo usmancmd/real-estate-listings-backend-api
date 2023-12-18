@@ -118,72 +118,61 @@ Retrieve a list of real estate listings.
 HTTP/1.1 200 OK
 
 ```json
-
 [
-	{
-		"_id": "657afe6340cb6db006d8659b",
-		"name": "Serene Haven",
-		"description": "Spacious and peaceful villa",
-		"address": "1234 Serenity Street",
-		"bathrooms": 3,
-		"bedrooms": 4,
-		"furnished": true,
-		"parking": true,
-		"type": "rent",
-		"imageUrls": [
-			"http://listingurl.png",
-			"http://listingurl.png"
-		],
-		"userRef": "657aed5d43d833e070e19605",
-		"createdAt": "2023-12-14T13:08:51.689Z",
-		"updatedAt": "2023-12-14T13:08:51.689Z",
-		"__v": 0,
-		"regularPrice": "$1000",
-		"discountPrice": "$800"
-	},
-	{
-		"_id": "657afe9140cb6db006d8659d",
-		"name": "Cozy Cottage",
-		"description": "Charming cottage with a garden",
-		"address": "5678 Pleasant Lane",
-		"bathrooms": 1,
-		"bedrooms": 2,
-		"furnished": false,
-		"parking": true,
-		"type": "rent",
-		"imageUrls": [
-			"http://listingurl.png",
-			"http://listingurl.png"
-		],
-		"userRef": "657aed5d43d833e070e19605",
-		"createdAt": "2023-12-14T13:09:37.026Z",
-		"updatedAt": "2023-12-14T13:09:37.026Z",
-		"__v": 0,
-		"regularPrice": "$600",
-		"discountPrice": "$550"
-	},
-	{
-		"_id": "657afece40cb6db006d8659f",
-		"name": "Luxury Penthouse",
-		"description": "Stunning penthouse with panoramic views",
-		"address": "9101 Skyline Avenue",
-		"bathrooms": 3,
-		"bedrooms": 3,
-		"furnished": true,
-		"parking": true,
-		"type": "rent",
-		"imageUrls": [
-			"http://listingurl.png",
-			"http://listingurl.png"
-		],
-		"userRef": "657aed5d43d833e070e19605",
-		"createdAt": "2023-12-14T13:10:38.981Z",
-		"updatedAt": "2023-12-14T13:10:38.981Z",
-		"__v": 0,
-		"regularPrice": "$2000",
-		"discountPrice": "$1800"
-	}
-	...
+  {
+    "_id": "657afe6340cb6db006d8659b",
+    "name": "Serene Haven",
+    "description": "Spacious and peaceful villa",
+    "address": "1234 Serenity Street",
+    "bathrooms": 3,
+    "bedrooms": 4,
+    "furnished": true,
+    "parking": true,
+    "type": "rent",
+    "imageUrls": ["http://listingurl.png", "http://listingurl.png"],
+    "userRef": "657aed5d43d833e070e19605",
+    "createdAt": "2023-12-14T13:08:51.689Z",
+    "updatedAt": "2023-12-14T13:08:51.689Z",
+    "__v": 0,
+    "regularPrice": "$1000",
+    "discountPrice": "$800"
+  },
+  {
+    "_id": "657afe9140cb6db006d8659d",
+    "name": "Cozy Cottage",
+    "description": "Charming cottage with a garden",
+    "address": "5678 Pleasant Lane",
+    "bathrooms": 1,
+    "bedrooms": 2,
+    "furnished": false,
+    "parking": true,
+    "type": "rent",
+    "imageUrls": ["http://listingurl.png", "http://listingurl.png"],
+    "userRef": "657aed5d43d833e070e19605",
+    "createdAt": "2023-12-14T13:09:37.026Z",
+    "updatedAt": "2023-12-14T13:09:37.026Z",
+    "__v": 0,
+    "regularPrice": "$600",
+    "discountPrice": "$550"
+  },
+  {
+    "_id": "657afece40cb6db006d8659f",
+    "name": "Luxury Penthouse",
+    "description": "Stunning penthouse with panoramic views",
+    "address": "9101 Skyline Avenue",
+    "bathrooms": 3,
+    "bedrooms": 3,
+    "furnished": true,
+    "parking": true,
+    "type": "rent",
+    "imageUrls": ["http://listingurl.png", "http://listingurl.png"],
+    "userRef": "657aed5d43d833e070e19605",
+    "createdAt": "2023-12-14T13:10:38.981Z",
+    "updatedAt": "2023-12-14T13:10:38.981Z",
+    "__v": 0,
+    "regularPrice": "$2000",
+    "discountPrice": "$1800"
+  }
 ]
 ```
 
@@ -324,49 +313,42 @@ HTTP/1.1 200 OK
 
 ```json
 [
-	{
-		"_id": "657b011140cb6db006d865bf",
-		"name": "Oceanfront Paradise",
-		"description": "Exquisite villa with stunning ocean views",
-		"address": "3637 Coastal Drive",
-		"regularPrice": 2500,
-		"discountPrice": 2300,
-		"bathrooms": 4,
-		"bedrooms": 5,
-		"furnished": true,
-		"parking": true,
-		"type": "rent",
-		"imageUrls": [
-			"http://listingurl.png",
-			"http://listingurl.png"
-		],
-		"userRef": "657b00df40cb6db006d865bc",
-		"createdAt": "2023-12-14T13:20:17.417Z",
-		"updatedAt": "2023-12-14T13:20:17.417Z",
-		"__v": 0
-	},
-	{
-		"_id": "657b012740cb6db006d865c1",
-		"name": "Quaint Bungalow",
-		"description": "Charming bungalow in a peaceful neighborhood",
-		"address": "3839 Serenity Street",
-		"regularPrice": 700,
-		"discountPrice": 650,
-		"bathrooms": 1,
-		"bedrooms": 2,
-		"furnished": false,
-		"parking": true,
-		"type": "rent",
-		"imageUrls": [
-			"http://listingurl.png",
-			"http://listingurl.png"
-		],
-		"userRef": "657b00df40cb6db006d865bc",
-		"createdAt": "2023-12-14T13:20:39.296Z",
-		"updatedAt": "2023-12-14T13:20:39.296Z",
-		"__v": 0
-	}
-    ...
+  {
+    "_id": "657b011140cb6db006d865bf",
+    "name": "Oceanfront Paradise",
+    "description": "Exquisite villa with stunning ocean views",
+    "address": "3637 Coastal Drive",
+    "regularPrice": 2500,
+    "discountPrice": 2300,
+    "bathrooms": 4,
+    "bedrooms": 5,
+    "furnished": true,
+    "parking": true,
+    "type": "rent",
+    "imageUrls": ["http://listingurl.png", "http://listingurl.png"],
+    "userRef": "657b00df40cb6db006d865bc",
+    "createdAt": "2023-12-14T13:20:17.417Z",
+    "updatedAt": "2023-12-14T13:20:17.417Z",
+    "__v": 0
+  },
+  {
+    "_id": "657b012740cb6db006d865c1",
+    "name": "Quaint Bungalow",
+    "description": "Charming bungalow in a peaceful neighborhood",
+    "address": "3839 Serenity Street",
+    "regularPrice": 700,
+    "discountPrice": 650,
+    "bathrooms": 1,
+    "bedrooms": 2,
+    "furnished": false,
+    "parking": true,
+    "type": "rent",
+    "imageUrls": ["http://listingurl.png", "http://listingurl.png"],
+    "userRef": "657b00df40cb6db006d865bc",
+    "createdAt": "2023-12-14T13:20:39.296Z",
+    "updatedAt": "2023-12-14T13:20:39.296Z",
+    "__v": 0
+  }
 ]
 ```
 
