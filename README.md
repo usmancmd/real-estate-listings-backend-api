@@ -34,22 +34,21 @@ Registers a new user by sending a post request to the endpoint. The request body
 
 **Example response**
 
-```json
 HTTP/1.1 201 Created
 
+```json
 {
   "message": "User registered successfully"
 }
-
 ```
 
 Once a user is registered, if you try to register the same user again you get a conflict response which indicate the you are trying to create existing data again.
 
-```json
 HTTP/1.1 409 Conflict
 
+```json
 {
-	"message": "conflict!, user already exist"
+  "message": "conflict!, user already exist"
 }
 ```
 
@@ -70,13 +69,12 @@ We authenticates users by generating a JWT token stored in a cookie.
 
 **Example response**
 
-```json
 HTTP/1.1 200 OK
 
+```json
 {
   "message": "User signed in successfully"
 }
-
 ```
 
 ### Sign out
@@ -88,20 +86,19 @@ Authenticated users are signed out by clearing the JWT token stored in the cooki
 
 **Example response**
 
-```json
 HTTP/1.1 200 OK
 
+```json
 {
   "message": "User signed out successfully"
 }
-
 ```
 
 And if you send a GET request to the api enpoint again you will get:
 
-```json
 HTTP/1.1 401 Unauthorized
 
+```json
 {
   "error": "Unauthorized",
   "message": "You are already logged out"
@@ -118,8 +115,9 @@ Retrieve a list of real estate listings.
 
 **Example response**
 
-```json
 HTTP/1.1 200 OK
+
+```json
 
 [
 	{
@@ -217,32 +215,29 @@ So, to create your first listing send a post request to the endpoint. The reques
 
 **Example response**
 
-```json
 HTTP/1.1 200 OK
 
+```json
 {
-	"message": "listing created successfully",
-	"listing": {
-		"name": "Modern Urban Haven",
-		"description": "Stylish apartment in a vibrant city neighborhood",
-		"address": "5253 Trendy Street",
-		"regularPrice": 1100,
-		"discountPrice": 1000,
-		"bathrooms": 1,
-		"bedrooms": 1,
-		"furnished": true,
-		"parking": false,
-		"type": "rent",
-		"imageUrls": [
-			"http://listingurl.png",
-			"http://listingurl.png"
-		],
-		"userRef": "657b00df40cb6db006d865bc",
-		"_id": "657b012740cb6db006d865c1",
-		"createdAt": "2023-12-14T13:20:39.296Z",
-		"updatedAt": "2023-12-14T13:20:39.296Z",
-		"__v": 0
-	}
+  "message": "listing created successfully",
+  "listing": {
+    "name": "Modern Urban Haven",
+    "description": "Stylish apartment in a vibrant city neighborhood",
+    "address": "5253 Trendy Street",
+    "regularPrice": 1100,
+    "discountPrice": 1000,
+    "bathrooms": 1,
+    "bedrooms": 1,
+    "furnished": true,
+    "parking": false,
+    "type": "rent",
+    "imageUrls": ["http://listingurl.png", "http://listingurl.png"],
+    "userRef": "657b00df40cb6db006d865bc",
+    "_id": "657b012740cb6db006d865c1",
+    "createdAt": "2023-12-14T13:20:39.296Z",
+    "updatedAt": "2023-12-14T13:20:39.296Z",
+    "__v": 0
+  }
 }
 ```
 
@@ -272,6 +267,8 @@ You can update your listing by specifying it's {id} as the url parameter where `
 
 **Example response**  
 Now we just update the listing's description and address
+
+HTTP/1.1 200 OK
 
 ```json
 {
@@ -306,6 +303,8 @@ You can delete your listing by specifying it's {id} as the url parameter it's si
 
 **Example response**
 
+HTTP/1.1 200 OK
+
 ```json
 {
   "message": "listing deleted successfully!"
@@ -320,6 +319,8 @@ Get all your listings by sending a Get request to the endpoint.
 `GET /user/listings`
 
 **Example response**
+
+HTTP/1.1 200 OK
 
 ```json
 [
@@ -379,6 +380,8 @@ Retrieve a single listing by it's `id`
 
 **Example response**
 
+HTTP/1.1 200 OK
+
 ```json
 {
   "_id": "657afece40cb6db006d8659f",
@@ -417,19 +420,18 @@ you can update your email and password using this endpoint.
 
 **Example response**
 
-```json
 HTTP/1.1 200 OK
 
+```json
 {
-	"message": "user updated successfully!",
-	"response": {
-		"email": "new_user@example.com",
-		"createdAt": "2023-12-13T20:55:37.313Z",
-		"updatedAt": "2023-12-13T20:57:15.530Z",
-		"__v": 0
-	}
+  "message": "user updated successfully!",
+  "response": {
+    "email": "new_user@example.com",
+    "createdAt": "2023-12-13T20:55:37.313Z",
+    "updatedAt": "2023-12-13T20:57:15.530Z",
+    "__v": 0
+  }
 }
-
 ```
 
 ### Error Handling
