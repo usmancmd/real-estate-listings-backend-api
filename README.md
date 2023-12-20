@@ -1,14 +1,14 @@
-# Real Estate Market Backend API Documentation
+# Real Estate Listings API Documentation
 
-Welcome to the documentation for the Real Estate Market Backend API. This API provides access to various endpoints that allow you to retrieve real estate market data.
+Welcome to the documentation for the Real Estate Listings API. This API provides access to various endpoints that allow you to retrieve real estate listings data.
 
 ## Description
 
-The Real Estate Market API provides developers with real-time access to comprehensive real estate market data, including property listings, prices, and details. Enhance your real estate applications with up-to-date information and improve user experiences.
+The Real Estate Listings API provides developers with real-time access to comprehensive real estate market data, including property listings, prices, and details. Enhance your real estate applications with up-to-date information and improve user experiences.
 
 ## Base URL
 
-The base URL for all API endpoints is: [https://rem-api.onrender.com](https://rem-api.onrender.com)
+The base URL for all API endpoints is: [https://rel-api.onrender.com](https://rel-api.onrender.com)
 
 ## API Version
 
@@ -119,64 +119,131 @@ HTTP/1.1 200 OK
 
 ```json
 [
-  {
-    "_id": "657afe6340cb6db006d8659b",
-    "name": "Serene Haven",
-    "description": "Spacious and peaceful villa",
-    "address": "1234 Serenity Street",
-    "bathrooms": 3,
-    "bedrooms": 4,
-    "furnished": true,
-    "parking": true,
-    "type": "rent",
-    "imageUrls": ["http://listingurl.png", "http://listingurl.png"],
-    "userRef": "657aed5d43d833e070e19605",
-    "createdAt": "2023-12-14T13:08:51.689Z",
-    "updatedAt": "2023-12-14T13:08:51.689Z",
-    "__v": 0,
-    "regularPrice": "$1000",
-    "discountPrice": "$800"
-  },
-  {
-    "_id": "657afe9140cb6db006d8659d",
-    "name": "Cozy Cottage",
-    "description": "Charming cottage with a garden",
-    "address": "5678 Pleasant Lane",
-    "bathrooms": 1,
-    "bedrooms": 2,
-    "furnished": false,
-    "parking": true,
-    "type": "rent",
-    "imageUrls": ["http://listingurl.png", "http://listingurl.png"],
-    "userRef": "657aed5d43d833e070e19605",
-    "createdAt": "2023-12-14T13:09:37.026Z",
-    "updatedAt": "2023-12-14T13:09:37.026Z",
-    "__v": 0,
-    "regularPrice": "$600",
-    "discountPrice": "$550"
-  },
-  {
-    "_id": "657afece40cb6db006d8659f",
-    "name": "Luxury Penthouse",
-    "description": "Stunning penthouse with panoramic views",
-    "address": "9101 Skyline Avenue",
-    "bathrooms": 3,
-    "bedrooms": 3,
-    "furnished": true,
-    "parking": true,
-    "type": "rent",
-    "imageUrls": ["http://listingurl.png", "http://listingurl.png"],
-    "userRef": "657aed5d43d833e070e19605",
-    "createdAt": "2023-12-14T13:10:38.981Z",
-    "updatedAt": "2023-12-14T13:10:38.981Z",
-    "__v": 0,
-    "regularPrice": "$2000",
-    "discountPrice": "$1800"
-  }
+	{
+		"_id": "658012b8ae632ffe6a4765e2",
+		"name": "Serene Haven",
+		"description": "Spacious and peaceful villa",
+		"address": "1234 Serenity Street",
+		"regularPrice": "$1000",
+		"discountPrice": "$800",
+		"bathrooms": 3,
+		"bedrooms": 4,
+		"furnished": true,
+		"parking": true,
+		"type": "rent",
+		"imageUrls": [
+			"http://listingurl.png",
+			"http://listingurl.png"
+		],
+		"createdAt": "2023-12-18T09:36:56.052Z",
+		"updatedAt": "2023-12-18T09:36:56.052Z",
+		"__v": 0
+	},
+	{
+		"_id": "658012e3ae632ffe6a4765e5",
+		"name": "Cozy Cottage",
+		"description": "Charming cottage with a garden",
+		"address": "5678 Pleasant Lane",
+		"regularPrice": "$4600",
+		"discountPrice": "$550",
+		"bathrooms": 1,
+		"bedrooms": 2,
+		"furnished": false,
+		"parking": true,
+		"type": "rent",
+		"imageUrls": [
+			"http://listingurl.png",
+			"http://listingurl.png"
+		],
+		"createdAt": "2023-12-18T09:37:39.463Z",
+		"updatedAt": "2023-12-18T09:37:39.463Z",
+		"__v": 0
+	},
+	{
+		"_id": "6580130bae632ffe6a4765e8",
+		"name": "Luxury Penthouse",
+		"description": "Stunning penthouse with panoramic views",
+		"address": "9101 Skyline Avenue",
+		"regularPrice": "$2000",
+		"discountPrice": "$800",
+		"bathrooms": 3,
+		"bedrooms": 3,
+		"furnished": true,
+		"parking": true,
+		"type": "rent",
+		"imageUrls": [
+			"http://listingurl.png",
+			"http://listingurl.png"
+		],
+		"createdAt": "2023-12-18T09:38:19.612Z",
+		"updatedAt": "2023-12-18T09:38:19.612Z",
+		"__v": 0
+	},
+	{
+		"_id": "65801382ae632ffe6a4765ee",
+		"name": "Family Home",
+		"description": "Comfortable home for a growing family",
+		"address": "1415 Harmony Lane",
+		"regularPrice": "$1500",
+		"discountPrice": "$400",
+		"bathrooms": 2,
+		"bedrooms": 3,
+		"furnished": false,
+		"parking": true,
+		"type": "rent",
+		"imageUrls": [
+			"http://listingurl.png",
+			"http://listingurl.png"
+		],
+		"createdAt": "2023-12-18T09:40:18.896Z",
+		"updatedAt": "2023-12-18T09:40:18.896Z",
+		"__v": 0
+	},
+	{
+		"_id": "658013b8ae632ffe6a4765f1",
+		"name": "Seaside Retreat",
+		"description": "Relaxing beachfront villa",
+		"address": "1617 Ocean View Drive",
+		"regularPrice": "$1200",
+		"discountPrice": "$100",
+		"bathrooms": 4,
+		"bedrooms": 5,
+		"furnished": true,
+		"parking": true,
+		"type": "sale",
+		"imageUrls": [
+			"http://listingurl.png",
+			"http://listingurl.png"
+		],
+		"createdAt": "2023-12-18T09:41:12.350Z",
+		"updatedAt": "2023-12-18T09:41:12.350Z",
+		"__v": 0
+	},
+	{
+		"_id": "658015166b802d6c0ccf1798",
+		"name": "Rustic Cabin",
+		"description": "Cozy log cabin in the woods",
+		"address": "1819 Woodland Lane",
+		"regularPrice": "$1500",
+		"discountPrice": "$450",
+		"bathrooms": 1,
+		"bedrooms": 2,
+		"furnished": false,
+		"parking": true,
+		"type": "sale",
+		"imageUrls": [
+			"http://listingurl.png",
+			"http://listingurl.png"
+		],
+		"createdAt": "2023-12-18T09:47:02.979Z",
+		"updatedAt": "2023-12-18T09:47:02.979Z",
+		"__v": 0
+	},
+  {"more..."}
 ]
 ```
 
-The endpoint is using pagination, by default you get 12 listings per each request, so to get more listings you have to indicate the startIndex in the query parameter.  
+The endpoint is using pagination, by default you get 12 listings per each request, so to get more listings you have to indicate the startIndex in the query parameter like this:  
 `GET /listings?startIndex=13`
 
 ### create listing
@@ -191,8 +258,8 @@ So, to create your first listing send a post request to the endpoint. The reques
   "name": "Modern Urban Haven",
   "description": "Stylish apartment in a vibrant city neighborhood",
   "address": "5253 Trendy Street",
-  "regularPrice": 1100,
-  "discountPrice": 1000,
+  "regularPrice": "$1100",
+  "discountPrice": "$100",
   "bathrooms": "1",
   "bedrooms": "1",
   "furnished": true,
@@ -209,26 +276,27 @@ HTTP/1.1 200 OK
 ```json
 {
   "message": "listing created successfully",
-  "listing": {
+  "response": {
     "name": "Modern Urban Haven",
     "description": "Stylish apartment in a vibrant city neighborhood",
     "address": "5253 Trendy Street",
-    "regularPrice": 1100,
-    "discountPrice": 1000,
+    "regularPrice": "$1100",
+    "discountPrice": "$100",
     "bathrooms": 1,
     "bedrooms": 1,
     "furnished": true,
     "parking": false,
     "type": "rent",
     "imageUrls": ["http://listingurl.png", "http://listingurl.png"],
-    "userRef": "657b00df40cb6db006d865bc",
-    "_id": "657b012740cb6db006d865c1",
-    "createdAt": "2023-12-14T13:20:39.296Z",
-    "updatedAt": "2023-12-14T13:20:39.296Z",
+    "_id": "658019f5096a4b04dd8814bf",
+    "createdAt": "2023-12-18T10:07:49.442Z",
+    "updatedAt": "2023-12-18T10:07:49.442Z",
     "__v": 0
   }
 }
 ```
+
+You will notice that some fields are added, which is useful for keeping track of the listing.
 
 ### update listing
 
@@ -236,7 +304,7 @@ HTTP/1.1 200 OK
 Update your existing listing by it's {id}.
 You can update your listing by specifying it's {id} as the url parameter where `listing_id` is the `id` of listing to update, you can get your listing `id` from the response you got when you create the listing as `_id`  
 **Example request**  
-`POST /listings/update/657b012740cb6db006d865c1`
+`POST /listings/update/658019f5096a4b04dd8814bf`
 
 ```json
 {
@@ -244,7 +312,7 @@ You can update your listing by specifying it's {id} as the url parameter where `
   "description": "A tranquil retreat in the midst of a vibrant city",
   "address": "4849 Skyline Avenue",
   "regularPrice": "1100",
-  "discountPrice": "1000",
+  "discountPrice": "100",
   "bathrooms": "1",
   "bedrooms": "1",
   "furnished": true,
@@ -267,15 +335,14 @@ HTTP/1.1 200 OK
     "name": "Modern Urban Haven",
     "description": "A tranquil retreat in the midst of a vibrant city",
     "address": "4849 Skyline Avenue",
-    "regularPrice": 1100,
-    "discountPrice": 1000,
+    "regularPrice": "$1100",
+    "discountPrice": "$100",
     "bathrooms": 1,
     "bedrooms": 1,
     "furnished": true,
     "parking": false,
     "type": "rent",
     "imageUrls": ["http://listingurl.png", "http://listingurl.png"],
-    "userRef": "657a1adc95c2e512d7a245b9",
     "createdAt": "2023-12-13T21:01:14.778Z",
     "updatedAt": "2023-12-13T21:03:29.185Z",
     "__v": 0
@@ -326,7 +393,6 @@ HTTP/1.1 200 OK
     "parking": true,
     "type": "rent",
     "imageUrls": ["http://listingurl.png", "http://listingurl.png"],
-    "userRef": "657b00df40cb6db006d865bc",
     "createdAt": "2023-12-14T13:20:17.417Z",
     "updatedAt": "2023-12-14T13:20:17.417Z",
     "__v": 0
@@ -344,7 +410,6 @@ HTTP/1.1 200 OK
     "parking": true,
     "type": "rent",
     "imageUrls": ["http://listingurl.png", "http://listingurl.png"],
-    "userRef": "657b00df40cb6db006d865bc",
     "createdAt": "2023-12-14T13:20:39.296Z",
     "updatedAt": "2023-12-14T13:20:39.296Z",
     "__v": 0
@@ -376,7 +441,6 @@ HTTP/1.1 200 OK
   "parking": true,
   "type": "rent",
   "imageUrls": ["http://listingurl.png", "http://listingurl.png"],
-  "userRef": "657aed5d43d833e070e19605",
   "createdAt": "2023-12-14T13:10:38.981Z",
   "updatedAt": "2023-12-14T13:10:38.981Z",
   "__v": 0,
