@@ -248,7 +248,7 @@ The endpoint is using pagination, by default you get 12 listings per each reques
 
 ### create listing
 
-To create a listing you have to specify the name, description, address, bathrooms, bedrooms, furnished, parking, type, imageUrls, regularPrice and discountPrice. Set discountPrice to 0 if their is no discount for your listing. For imageUrls minimum of at leaest 1 url is required and maximum is 4 urls per listing.  
+To create a listing you have to specify the name, description, address, bathrooms, bedrooms, furnished, parking, type, imageUrls, regularPrice and discountPrice. Set discountPrice to 0 if their is no discount for your listing. For imageUrls minimum of at least 1 url is required and maximum is 4 urls per listing.  
 So, to create your first listing send a post request to the endpoint. The request body must be a valid json data with the listing fields.  
 **Example request**  
 `POST /listing/create`
