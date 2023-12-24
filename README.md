@@ -1,107 +1,115 @@
 # Real Estate Listings API Documentation
 
-Welcome to the documentation for the Real Estate Listings API. This API provides access to various endpoints that allow you to retrieve real estate listings data.
+Welcome to the documentation for the Real Estate Listings API. This API
+provides access to various endpoints that allow you to retrieve real estate
+listing data.
 
 ## Description
 
-The Real Estate Listings API provides developers with real-time access to comprehensive real estate market data, including property listings, prices, and details. Enhance your real estate applications with up-to-date information and improve user experiences.
+The Real Estate Listings API provides developers with real-time access to
+comprehensive real estate market data, including property listings, prices,
+and details. Enhance your real estate applications with up-to-date information
+and improve user experiences.
 
 ## Base URL
 
-The base URL for all API endpoints is: [https://rel-api.onrender.com](https://rel-api.onrender.com)
+The base URL for all API endpoints is:
+[https://rel-api.onrender.com](https://rel-api.onrender.com)
 
 ## API Version
 
 The current version of the API is: `version 1.0.0`
 
-## Authentication
+## Authentication Endpoints
 
-All endpoints except for the signup and signin routes require authentication using JWT token.
+All endpoints except for the signup and sign-in routes require authentication
+using a JWT token.
 
 ### Sign up
 
-**Endpoint**: POST /auth/signup  
-Registers a new user by sending a post request to the endpoint. The request body must be a valid json data with the required fields email and password.  
-**Example request**  
-`POST /auth/signup`
+**Endpoint:** `POST /auth/signup`
+
+Registers a new user by sending a post request to the endpoint. The request
+body must be valid JSON data with the required fields email and password.
 
 ```json
 {
-  "email": "user@example.com",
-  "password": "password123"
+	"email": "user@example.com",
+	"password": "password123"
 }
 ```
 
-**Example response**
+#### Sign up example response
 
-HTTP/1.1 201 Created
+`HTTP/1.1 201 Created`
 
 ```json
 {
-  "message": "User registered successfully"
+	"message": "User registered successfully"
 }
 ```
 
-Once a user is registered, if you try to register the same user again you get a conflict response which indicate the you are trying to create existing data again.
+Once a user is registered, if you try to register the same user again you get a
+conflict response which indicates that you are trying to create existing data
+again.
 
-HTTP/1.1 409 Conflict
+`HTTP/1.1 409 Conflict`
 
 ```json
 {
-  "message": "conflict!, user already exist"
+	"message": "conflict!, user already exist"
 }
 ```
 
 ### Sign in
 
-**Endpoint**: POST /api/signin  
-Signin to have access to various endpoints.
-We authenticates users by generating a JWT token stored in a cookie.  
-**Example request**  
-`POST /auth/signin`
+**Endpoint:** `POST /api/signin`
+
+Sign-in to have access to various endpoints.
+We authenticate users by generating a JWT token stored in a cookie.
 
 ```json
 {
-  "email": "user@example.com",
-  "password": "password123"
+	"email": "user@example.com",
+	"password": "password123"
 }
 ```
 
-**Example response**
+#### Sign in example response
 
-HTTP/1.1 200 OK
+`HTTP/1.1 200 OK`
 
 ```json
 {
-  "message": "User signed in successfully"
+	"message": "User signed in successfully"
 }
 ```
 
 ### Sign out
 
-**Endpoint**: GET /api/signout  
-Authenticated users are signed out by clearing the JWT token stored in the cookie.  
-**Example request**  
-`GET /auth/signout`
+**Endpoint:** `GET /api/signout`
 
-**Example response**
+Authenticated users are signed out by clearing the JWT token stored in the
+cookie.
 
-HTTP/1.1 200 OK
+#### Sign out example response
+
+`HTTP/1.1 200 OK`
 
 ```json
 {
-  "message": "User signed out successfully"
+	"message": "User signed out successfully"
 }
 ```
 
-And if you send a GET request to the api enpoint again you will get:
+And if you send a GET request to the API endpoint again, you will get:
 
-HTTP/1.1 401 Unauthorized
+`HTTP/1.1 401 Unauthorized`
 
 ```json
 {
-  "error": "Unauthorized",
-  "message": "You are already logged out"
+	"error": "Unauthorized",
+	"message": "You are already logged out"
 }
 ```
 
@@ -109,13 +117,13 @@ HTTP/1.1 401 Unauthorized
 
 ### Get Real Estate Listings
 
-Retrieve a list of real estate listings.  
-**Example request**  
-`GET /listings`
+**Endpoint:** `GET /listings`
 
-**Example response**
+Retrieve a list of real estate listings without being authenticated.
 
-HTTP/1.1 200 OK
+#### Get listings example response
+
+`HTTP/1.1 200 OK`
 
 ```json
 [
@@ -131,10 +139,7 @@ HTTP/1.1 200 OK
 		"furnished": true,
 		"parking": true,
 		"type": "rent",
-		"imageUrls": [
-			"http://listingurl.png",
-			"http://listingurl.png"
-		],
+		"imageUrls": ["http://listingurl.png", "http://listingurl.png"],
 		"createdAt": "2023-12-18T09:36:56.052Z",
 		"updatedAt": "2023-12-18T09:36:56.052Z",
 		"__v": 0
@@ -151,10 +156,7 @@ HTTP/1.1 200 OK
 		"furnished": false,
 		"parking": true,
 		"type": "rent",
-		"imageUrls": [
-			"http://listingurl.png",
-			"http://listingurl.png"
-		],
+		"imageUrls": ["http://listingurl.png", "http://listingurl.png"],
 		"createdAt": "2023-12-18T09:37:39.463Z",
 		"updatedAt": "2023-12-18T09:37:39.463Z",
 		"__v": 0
@@ -171,10 +173,7 @@ HTTP/1.1 200 OK
 		"furnished": true,
 		"parking": true,
 		"type": "rent",
-		"imageUrls": [
-			"http://listingurl.png",
-			"http://listingurl.png"
-		],
+		"imageUrls": ["http://listingurl.png", "http://listingurl.png"],
 		"createdAt": "2023-12-18T09:38:19.612Z",
 		"updatedAt": "2023-12-18T09:38:19.612Z",
 		"__v": 0
@@ -191,10 +190,7 @@ HTTP/1.1 200 OK
 		"furnished": false,
 		"parking": true,
 		"type": "rent",
-		"imageUrls": [
-			"http://listingurl.png",
-			"http://listingurl.png"
-		],
+		"imageUrls": ["http://listingurl.png", "http://listingurl.png"],
 		"createdAt": "2023-12-18T09:40:18.896Z",
 		"updatedAt": "2023-12-18T09:40:18.896Z",
 		"__v": 0
@@ -211,10 +207,7 @@ HTTP/1.1 200 OK
 		"furnished": true,
 		"parking": true,
 		"type": "sale",
-		"imageUrls": [
-			"http://listingurl.png",
-			"http://listingurl.png"
-		],
+		"imageUrls": ["http://listingurl.png", "http://listingurl.png"],
 		"createdAt": "2023-12-18T09:41:12.350Z",
 		"updatedAt": "2023-12-18T09:41:12.350Z",
 		"__v": 0
@@ -231,139 +224,135 @@ HTTP/1.1 200 OK
 		"furnished": false,
 		"parking": true,
 		"type": "sale",
-		"imageUrls": [
-			"http://listingurl.png",
-			"http://listingurl.png"
-		],
+		"imageUrls": ["http://listingurl.png", "http://listingurl.png"],
 		"createdAt": "2023-12-18T09:47:02.979Z",
 		"updatedAt": "2023-12-18T09:47:02.979Z",
 		"__v": 0
-	},
-  {"more..."}
+	}
+	// {"more..."}
 ]
 ```
 
-The endpoint is using pagination, by default you get 12 listings per each request, so to get more listings you have to indicate the startIndex in the query parameter like this:  
-`GET /listings?startIndex=13`
+The endpoint is using pagination. By default, you get 12 listings per request.
+To get more listings, you have to indicate the `startIndex` in the query
+parameter like this `GET /listings?startIndex=13`.
 
-### create listing
+### Create A Listing
 
-To create a listing you have to specify the name, description, address, bathrooms, bedrooms, furnished, parking, type, imageUrls, regularPrice and discountPrice. Set discountPrice to 0 if their is no discount for your listing. For imageUrls minimum of at least 1 url is required and maximum is 4 urls per listing.  
-So, to create your first listing send a post request to the endpoint. The request body must be a valid json data with the listing fields.  
-**Example request**  
-`POST /listing/create`
+**Endpoint:** `listings/create`
+
+To create a listing, you have to specify the required fields.
+Set`discountPrice`to 0 if there is no discount for your listing.
+For`imageUrls`, a minimum of at least 1 URL is required and a maximum of
+4 URLs per listing.  
+To create your first listing, send a post request to the endpoint.
+The request body must be valid JSON data with the listing fields.
 
 ```json
 {
-  "name": "Modern Urban Haven",
-  "description": "Stylish apartment in a vibrant city neighborhood",
-  "address": "5253 Trendy Street",
-  "regularPrice": "$1100",
-  "discountPrice": "$100",
-  "bathrooms": "1",
-  "bedrooms": "1",
-  "furnished": true,
-  "parking": false,
-  "type": "rent",
-  "imageUrls": ["http://listingurl.png", "http://listingurl.png"]
+	"name": "Modern Urban Haven",
+	"description": "Stylish apartment in a vibrant city neighborhood",
+	"address": "5253 Trendy Street",
+	"regularPrice": "$1100",
+	"discountPrice": "$100",
+	"bathrooms": "1",
+	"bedrooms": "1",
+	"furnished": true,
+	"parking": false,
+	"type": "rent",
+	"imageUrls": ["http://listingurl.png", "http://listingurl.png"]
 }
 ```
 
-**Example response**
+#### Create a listing example response
 
-HTTP/1.1 200 OK
+`HTTP/1.1 200 OK`
 
 ```json
 {
-  "message": "listing created successfully",
-  "response": {
-    "name": "Modern Urban Haven",
-    "description": "Stylish apartment in a vibrant city neighborhood",
-    "address": "5253 Trendy Street",
-    "regularPrice": "$1100",
-    "discountPrice": "$100",
-    "bathrooms": 1,
-    "bedrooms": 1,
-    "furnished": true,
-    "parking": false,
-    "type": "rent",
-    "imageUrls": ["http://listingurl.png", "http://listingurl.png"],
-    "_id": "658019f5096a4b04dd8814bf",
-    "createdAt": "2023-12-18T10:07:49.442Z",
-    "updatedAt": "2023-12-18T10:07:49.442Z",
-    "__v": 0
-  }
+	"message": "listing created successfully",
+	"response": {
+		"name": "Modern Urban Haven",
+		"description": "Stylish apartment in a vibrant city neighborhood",
+		"address": "5253 Trendy Street",
+		"regularPrice": "$1100",
+		"discountPrice": "$100",
+		"bathrooms": 1,
+		"bedrooms": 1,
+		"furnished": true,
+		"parking": false,
+		"type": "rent",
+		"imageUrls": ["http://listingurl.png", "http://listingurl.png"],
+		"_id": "658019f5096a4b04dd8814bf",
+		"createdAt": "2023-12-18T10:07:49.442Z",
+		"updatedAt": "2023-12-18T10:07:49.442Z",
+		"__v": 0
+	}
 }
 ```
 
-You will notice that some fields are added, which is useful for keeping track of the listing.
+You will notice that some fields are added, which is useful for keeping track
+of the listing.
 
-### update listing
+### Update Listing
 
-**Endpoint**: POST /listings/update/{listing_id}  
-Update your existing listing by it's {id}.
-You can update your listing by specifying it's {id} as the url parameter where `listing_id` is the `id` of listing to update, you can get your listing `id` from the response you got when you create the listing as `_id`  
-**Example request**  
-`POST /listings/update/658019f5096a4b04dd8814bf`
+**Endpoint:** `POST /listings/update/listing_id`
+
+You can update your listing by specifying its `id` as the URL parameter where
+`listing_id` is the `id` of the listing to update. You can get your listing
+`id` from the response you got when you created the listing as `_id`.
+You can just specify the field you want to update. For example, the below code
+only updates the `description` and `address` fields.
 
 ```json
 {
-  "name": "Modern Urban Haven",
-  "description": "A tranquil retreat in the midst of a vibrant city",
-  "address": "4849 Skyline Avenue",
-  "regularPrice": "1100",
-  "discountPrice": "100",
-  "bathrooms": "1",
-  "bedrooms": "1",
-  "furnished": true,
-  "parking": false,
-  "type": "rent",
-  "imageUrls": ["http://listingurl.png", "http://listingurl.png"]
+	"description": "A tranquil retreat in the midst of a vibrant city",
+	"address": "4849 Skyline Avenue"
 }
 ```
 
-**Example response**  
-Now we just update the listing's description and address
+#### Update listing example response
 
-HTTP/1.1 200 OK
+`HTTP/1.1 200 OK`
 
 ```json
 {
-  "message": "listing updated successfully",
-  "updatedListing": {
-    "_id": "657a1b9a361787d932faa840",
-    "name": "Modern Urban Haven",
-    "description": "A tranquil retreat in the midst of a vibrant city",
-    "address": "4849 Skyline Avenue",
-    "regularPrice": "$1100",
-    "discountPrice": "$100",
-    "bathrooms": 1,
-    "bedrooms": 1,
-    "furnished": true,
-    "parking": false,
-    "type": "rent",
-    "imageUrls": ["http://listingurl.png", "http://listingurl.png"],
-    "createdAt": "2023-12-13T21:01:14.778Z",
-    "updatedAt": "2023-12-13T21:03:29.185Z",
-    "__v": 0
-  }
+	"message": "listing updated successfully",
+	"updatedListing": {
+		"_id": "657a1b9a361787d932faa840",
+		"name": "Modern Urban Haven",
+		"description": "A tranquil retreat in the midst of a vibrant city",
+		"address": "4849 Skyline Avenue",
+		"regularPrice": "$1100",
+		"discountPrice": "$100",
+		"bathrooms": 1,
+		"bedrooms": 1,
+		"furnished": true,
+		"parking": false,
+		"type": "rent",
+		"imageUrls": ["http://listingurl.png", "http://listingurl.png"],
+		"createdAt": "2023-12-13T21:01:14.778Z",
+		"updatedAt": "2023-12-13T21:03:29.185Z",
+		"__v": 0
+	}
 }
 ```
 
 ### Delete Listing
 
-**Endpoint**: DELETE /listings/delete/{listing_id}  
-You can delete your listing by specifying it's {id} as the url parameter it's similar to updating a listing where `listing_id` is the `id` of the listing to delete.  
-**Example request**  
-`DELETE /listings/delete/657a1b9a361787d932faa840`
+**Endpoint:** `DELETE /listings/delete/listing_id`
 
-**Example response**
+You can delete your listing by specifying its `id` as the URL parameter it's
+similar to updating a listing where `listing_id` is the `id` of the listing
+to delete.
 
-HTTP/1.1 200 OK
+#### Delete listing example response
+
+`HTTP/1.1 200 OK`
 
 ```json
 {
-  "message": "listing deleted successfully!"
+	"message": "listing deleted successfully!"
 }
 ```
 
@@ -380,40 +369,40 @@ HTTP/1.1 200 OK
 
 ```json
 [
-  {
-    "_id": "657b011140cb6db006d865bf",
-    "name": "Oceanfront Paradise",
-    "description": "Exquisite villa with stunning ocean views",
-    "address": "3637 Coastal Drive",
-    "regularPrice": 2500,
-    "discountPrice": 2300,
-    "bathrooms": 4,
-    "bedrooms": 5,
-    "furnished": true,
-    "parking": true,
-    "type": "rent",
-    "imageUrls": ["http://listingurl.png", "http://listingurl.png"],
-    "createdAt": "2023-12-14T13:20:17.417Z",
-    "updatedAt": "2023-12-14T13:20:17.417Z",
-    "__v": 0
-  },
-  {
-    "_id": "657b012740cb6db006d865c1",
-    "name": "Quaint Bungalow",
-    "description": "Charming bungalow in a peaceful neighborhood",
-    "address": "3839 Serenity Street",
-    "regularPrice": 700,
-    "discountPrice": 650,
-    "bathrooms": 1,
-    "bedrooms": 2,
-    "furnished": false,
-    "parking": true,
-    "type": "rent",
-    "imageUrls": ["http://listingurl.png", "http://listingurl.png"],
-    "createdAt": "2023-12-14T13:20:39.296Z",
-    "updatedAt": "2023-12-14T13:20:39.296Z",
-    "__v": 0
-  }
+	{
+		"_id": "657b011140cb6db006d865bf",
+		"name": "Oceanfront Paradise",
+		"description": "Exquisite villa with stunning ocean views",
+		"address": "3637 Coastal Drive",
+		"regularPrice": 2500,
+		"discountPrice": 2300,
+		"bathrooms": 4,
+		"bedrooms": 5,
+		"furnished": true,
+		"parking": true,
+		"type": "rent",
+		"imageUrls": ["http://listingurl.png", "http://listingurl.png"],
+		"createdAt": "2023-12-14T13:20:17.417Z",
+		"updatedAt": "2023-12-14T13:20:17.417Z",
+		"__v": 0
+	},
+	{
+		"_id": "657b012740cb6db006d865c1",
+		"name": "Quaint Bungalow",
+		"description": "Charming bungalow in a peaceful neighborhood",
+		"address": "3839 Serenity Street",
+		"regularPrice": 700,
+		"discountPrice": 650,
+		"bathrooms": 1,
+		"bedrooms": 2,
+		"furnished": false,
+		"parking": true,
+		"type": "rent",
+		"imageUrls": ["http://listingurl.png", "http://listingurl.png"],
+		"createdAt": "2023-12-14T13:20:39.296Z",
+		"updatedAt": "2023-12-14T13:20:39.296Z",
+		"__v": 0
+	}
 ]
 ```
 
@@ -431,21 +420,21 @@ HTTP/1.1 200 OK
 
 ```json
 {
-  "_id": "657afece40cb6db006d8659f",
-  "name": "Luxury Penthouse",
-  "description": "Stunning penthouse with panoramic views",
-  "address": "9101 Skyline Avenue",
-  "bathrooms": 3,
-  "bedrooms": 3,
-  "furnished": true,
-  "parking": true,
-  "type": "rent",
-  "imageUrls": ["http://listingurl.png", "http://listingurl.png"],
-  "createdAt": "2023-12-14T13:10:38.981Z",
-  "updatedAt": "2023-12-14T13:10:38.981Z",
-  "__v": 0,
-  "regularPrice": "$2000",
-  "discountPrice": "$1800"
+	"_id": "657afece40cb6db006d8659f",
+	"name": "Luxury Penthouse",
+	"description": "Stunning penthouse with panoramic views",
+	"address": "9101 Skyline Avenue",
+	"bathrooms": 3,
+	"bedrooms": 3,
+	"furnished": true,
+	"parking": true,
+	"type": "rent",
+	"imageUrls": ["http://listingurl.png", "http://listingurl.png"],
+	"createdAt": "2023-12-14T13:10:38.981Z",
+	"updatedAt": "2023-12-14T13:10:38.981Z",
+	"__v": 0,
+	"regularPrice": "$2000",
+	"discountPrice": "$1800"
 }
 ```
 
@@ -459,8 +448,8 @@ you can update your email and password using this endpoint.
 
 ```json
 {
-  "email": "new_user@example.com",
-  "password": "new_password123"
+	"email": "new_user@example.com",
+	"password": "new_password123"
 }
 ```
 
@@ -470,13 +459,13 @@ HTTP/1.1 200 OK
 
 ```json
 {
-  "message": "user updated successfully!",
-  "response": {
-    "email": "new_user@example.com",
-    "createdAt": "2023-12-13T20:55:37.313Z",
-    "updatedAt": "2023-12-13T20:57:15.530Z",
-    "__v": 0
-  }
+	"message": "user updated successfully!",
+	"response": {
+		"email": "new_user@example.com",
+		"createdAt": "2023-12-13T20:55:37.313Z",
+		"updatedAt": "2023-12-13T20:57:15.530Z",
+		"__v": 0
+	}
 }
 ```
 
