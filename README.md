@@ -230,7 +230,7 @@ Retrieve a list of real estate listings without being authenticated.
 		"updatedAt": "2023-12-18T09:47:02.979Z",
 		"__v": 0
 	}
-	// {"more..."}
+	"_more..."
 ]
 ```
 
@@ -292,9 +292,12 @@ The request body must be valid JSON data with the listing fields.
 }
 ```
 
-You will notice that some fields are added to the listing, they are additional informations to keep track of the listing.
+You will notice that some fields are added to the listing,
+they are additional informations to keep track of the listing.
 
-If the listing is created successfully and you try to create the same listing again you will get a conflict response which indicates that you are trying to create a listing that exist.
+If the listing is created successfully and you try to create the same listing
+again you will get a conflict response which indicates that you are trying to
+create a listing that exist.
 
 [`HTTP/1.1 409 Conflict`](#error-handling)
 
