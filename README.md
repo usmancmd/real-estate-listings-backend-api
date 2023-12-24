@@ -22,7 +22,7 @@ The current version of the API is: `version 1.0.0`
 
 ## Authentication Endpoints
 
-All endpoints except for the signup and sign-in routes require authentication
+All endpoints except for the sign-up and sign-in routes require authentication
 using a JWT token.
 
 ### Sign up
@@ -50,10 +50,10 @@ body must be valid JSON data with the required fields email and password.
 ```
 
 Once a user is registered, if you try to register the same user again you get a
-conflict response which indicates that you are trying to create existing data
+conflict response which indicates that you are trying to create existing user
 again.
 
-`HTTP/1.1 409 Conflict`
+[`HTTP/1.1 409 Conflict`](#error-handling)
 
 ```json
 {
@@ -81,7 +81,8 @@ We authenticate users by generating a JWT token stored in a cookie.
 
 ```json
 {
-	"message": "User signed in successfully"
+	"message": "User signed in successfully",
+	"email": "user@example.com"
 }
 ```
 
@@ -104,7 +105,7 @@ cookie.
 
 And if you send a GET request to the API endpoint again, you will get:
 
-`HTTP/1.1 401 Unauthorized`
+[`HTTP/1.1 401 Unauthorized`](#error-handling)
 
 ```json
 {
@@ -239,7 +240,7 @@ parameter like this `GET /listings?startIndex=13`.
 
 ### Create A Listing
 
-**Endpoint:** `listings/create`
+**Endpoint:** `POST listings/create`
 
 To create a listing, you have to specify the required fields.
 Set`discountPrice`to 0 if there is no discount for your listing.
@@ -291,8 +292,17 @@ The request body must be valid JSON data with the listing fields.
 }
 ```
 
-You will notice that some fields are added, which is useful for keeping track
-of the listing.
+You will notice that some fields are added to the listing, they are additional informations to keep track of the listing.
+
+If the listing is created successfully and you try to create the same listing again you will get a conflict response which indicates that you are trying to create a listing that exist.
+
+[`HTTP/1.1 409 Conflict`](#error-handling)
+
+```json
+{
+	"message": "conflict!, user already exist"
+}
+```
 
 ### Update Listing
 
@@ -356,16 +366,15 @@ to delete.
 }
 ```
 
-### Get all your listings
+### Get User listings
 
-**Endpoint**: GET user/listings  
-Get all your listings by sending a Get request to the endpoint.  
-**Example request**  
-`GET /user/listings`
+**Endpoint:** `GET user/listings`
 
-**Example response**
+Get all your listings by sending a Get request to the endpoint.
 
-HTTP/1.1 200 OK
+#### Get user listings example response
+
+`HTTP/1.1 200 OK`
 
 ```json
 [
@@ -406,17 +415,16 @@ HTTP/1.1 200 OK
 ]
 ```
 
-### Get a single listing
+### Get a listing
 
-**Endpoint**: GET user/listing/{listing_id}  
-Retrieve a single listing by it's `id`  
-`listing_id` id the `id` of the listing to retrieve.  
-**Example request**  
-`GET user/listing/657afece40cb6db006d8659f`
+**Endpoint:** GET `user/listing/listing_id`
 
-**Example response**
+Retrieve a single listing by its `id`  
+where `listing_id` is the `id` of the listing to retrieve.
 
-HTTP/1.1 200 OK
+#### Get listing example response
+
+`HTTP/1.1 200 OK`
 
 ```json
 {
@@ -440,11 +448,9 @@ HTTP/1.1 200 OK
 
 ### Update User Endpoint
 
-you can update your email and password using this endpoint.  
-**Enpoint**: PUT /user/update
+**Endpoint:** `PUT /user/update`
 
-**Example request**  
-`PUT /user/update`
+you can update your email and password using this endpoint.
 
 ```json
 {
@@ -453,9 +459,9 @@ you can update your email and password using this endpoint.
 }
 ```
 
-**Example response**
+#### Update user example response
 
-HTTP/1.1 200 OK
+`HTTP/1.1 200 OK`
 
 ```json
 {
